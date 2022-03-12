@@ -96,7 +96,7 @@ public class AddressBook {
 		Scanner sc = new Scanner(System.in);
 		String search_pers = sc.next();
 		int index = searchExistingContact(search_pers);
-		AddressBookMain.address_book.remove(index);
+		AddressBook.address_book.remove(index);
 	}
 
 	public void addPerson() {
