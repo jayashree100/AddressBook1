@@ -91,4 +91,17 @@ public class AddressBook {
 		AddressBook.address_book.set(index, contact);
 	}
 
+	public void deleteExistingContact() {
+		System.out.println("Enter the name of the person whose details you " + "want to be deleted");
+		Scanner sc = new Scanner(System.in);
+		String search_pers = sc.next();
+		int index = searchExistingContact(search_pers);
+		AddressBookMain.address_book.remove(index);
+	}
+
+	public void addPerson() {
+		System.out.println("Enter the person details");
+		addContact();
+	}
+
 }
