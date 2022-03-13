@@ -1,4 +1,7 @@
 package com.bridgelab.addressbook;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -104,5 +107,4 @@ public class AddressBook {
 		addContact();
 		System.out.println("Successfully added the contact");
 	}
-
 }
