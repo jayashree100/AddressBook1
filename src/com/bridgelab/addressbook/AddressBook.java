@@ -102,6 +102,7 @@ public class AddressBook {
 	public void addPerson() {
 		System.out.println("Enter the person details");
 		addContact();
+		System.out.println("Successfully added the contact");
 	}
 
 }
