@@ -29,8 +29,7 @@ public class AddressBook {
 
 	private static final ArrayList<ArrayList<String>> address_book = new ArrayList<>();
 
-	void createNewContact() throws Exception
-    {
+	void createNewContact() throws Exception {
         System.out.print("Enter name of the contact:");
         String contactName = scanner.nextLine();
         File file = new File(contactName);
@@ -40,8 +39,7 @@ public class AddressBook {
         }
         else
         {
-            if (file.createNewFile())
-            {
+            if (file.createNewFile()) {
                 System.out.println("new contact " + file.getName() + " is created successfully");
                 emptyContacts.add(file.getName());
             }
@@ -53,24 +51,21 @@ public class AddressBook {
 
     }
     //writes given content into given file
-    void writeFile(String fileName,String content)throws Exception
-    {
+    void writeFile(String fileName,String content)throws Exception {
         FileWriter fw = new FileWriter(fileName);
         fw.write(content);
         fw.close();
         nonEmptyContacts.add(fileName);
     }
 
-    Boolean validate(String name, String regex)
-    {
+    Boolean validate(String name, String regex) {
         return Pattern.matches(regex, name);
     }
 
     String takeInput(String field, String pattern)
     {
         String input;
-        do
-        {
+        do {
             System.out.print("enter " + field + ":");
             input = scanner.nextLine();
         } while (!validate(input, pattern));
@@ -78,12 +73,10 @@ public class AddressBook {
     }
 
     //given fields are added into contact
-    void fillContactDetails()throws Exception
-    {
+    void fillContactDetails()throws Exception {
         System.out.print("enter empty contact name which is going to be filed:");
         String contactName = scanner.nextLine();
-        if (emptyContacts.contains(contactName))
-        {
+        if (emptyContacts.contains(contactName)) {
             String details = "";
             details += takeInput("first name", firstNamePattern) + "\n";
             details += takeInput("last name", lastNamePattern) + "\n";
@@ -96,19 +89,15 @@ public class AddressBook {
             emptyContacts.remove(contactName);
             System.out.println("the given fields are successfully added in " + contactName);
         }
-        else
-        {
+        else {
             System.out.println(contactName + " is not empty contact or it is not created");
             System.out.println("use other option c to create new contact or option e to edit already created one");
         }
+}
 
-    }
-
-    void displayAllContacts()
-    {
+    void displayAllContacts() {
         boolean flag = false;
-        if (emptyContacts.size() != 0)
-        {
+        if (emptyContacts.size() != 0) {
             System.out.println("the empty contacts are:");
             for (String contact : emptyContacts)
             {
@@ -116,18 +105,15 @@ public class AddressBook {
             }
             flag=true;
         }
-        if (nonEmptyContacts.size() != 0)
-        {
+        if (nonEmptyContacts.size() != 0) {
             System.out.println("the non empty contacts are:");
-            for (String contact : nonEmptyContacts)
-            {
+            for (String contact : nonEmptyContacts) {
                 System.out.println(contact);
             }
             flag=true;
         }
-        if(!flag)
-        {
-            System.out.println("no contacts are created yet");
+        if(!flag) {
+          System.out.println("no contacts are created yet");
         }
 
     }
